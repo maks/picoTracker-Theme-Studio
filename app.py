@@ -5,16 +5,24 @@ from flask import Flask, render_template, request, Response, jsonify
 app = Flask(__name__)
 
 default_colors = {
-    "BACKGROUND": "#008080", "FOREGROUND": "#000000", "HICOLOR1": "#FFFFFF",
-    "HICOLOR2": "#C0C0C0", "CONSOLECOLOR": "#000080", "CURSORCOLOR": "#000000",
-    "INFOCOLOR": "#000080", "WARNCOLOR": "#808000", "ERRORCOLOR": "#800000",
-    "ACCENTCOLOR": "#FFFFFF", "ACCENTALTCOLOR": "#C0C0C0", "EMPHASISCOLOR": "#000000"
+    "BACKGROUND": "#000000", "FOREGROUND": "#0088FF", "HICOLOR1": "#00BB66",
+    "HICOLOR2": "#0066CC", "CONSOLECOLOR": "#000000", "CURSORCOLOR": "#00BB66",
+    "INFOCOLOR": "#0088FF", "WARNCOLOR": "#00AA55", "ERRORCOLOR": "#CC3333",
+    "ACCENTCOLOR": "#00AA55", "ACCENTALTCOLOR": "#0066CC", "EMPHASISCOLOR": "#00AA55"
 }
+
+TRACKER_ROWS = [f"{i:02X}" for i in range(0x10)]
+TRACKER_COLS = 8
 
 
 @app.route('/')
 def index():
-    return render_template('index.html', colors=default_colors)
+    return render_template(
+        'index.html',
+        colors=default_colors,
+        tracker_rows=TRACKER_ROWS,
+        tracker_cols=TRACKER_COLS,
+    )
 
 
 @app.route('/import', methods=['POST'])
