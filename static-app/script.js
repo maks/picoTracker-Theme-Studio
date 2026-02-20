@@ -171,10 +171,12 @@ window.onload = () => {
       previewHTML += `  <span class="blue">--</span>`;
     }
   });
+  previewHTML += `\n<span class="blue"></span>`;
+  
   previewHTML += `\n<span class="blue">D</span>`;
-  previewHTML += `\n<span class="blue">P   G</span>`;
-  previewHTML += `\n<span class="blue">S C P I</span>`;
-  previewHTML += `\n<span class="blue">   T T</span>`;
+  previewHTML += `\n<span class="blue">P G</span>`;
+  previewHTML += `\n<span class="blue">SCPI</span>`;
+  previewHTML += `\n<span class="blue">  TT</span>`;
   document.getElementById('pv').innerHTML = previewHTML;
   buildColorInputs();
   renderG();
