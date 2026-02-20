@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>picoTracker Theme Studio v1.0</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="window" style="width: 350px;">
+    <div class="title-bar"><span>Theme_Editor.exe</span></div>
+    <div class="content">
+      <input type="file" id="fileIn" style="display:none" onchange="upload()">
+      <button onclick="document.getElementById('fileIn').click()" style="width:100%">IMPORT .PTT</button>
+      <hr>
+      <form id="f" onsubmit="downloadTheme(event)">
+        <div class="row">Name: <input type="text" name="theme_name" id="tn" value="win95"></div>
+        <!-- Color inputs will be injected by script.js -->
+        <button type="button" id="randBtn" onclick="rand()" style="width:100%; margin: 10px 0;">RANDOMIZE</button>
+        <button type="submit" style="width:100%; background:#28a745; color:white">GENERATE .PTT</button>
+      </form>
+    </div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; gap:20px;">
+    <div class="window">
+      <div class="title-bar"><span>Preview_Monitor</span></div>
+      <div class="preview" id="pv">
+        <span class="blue">song sad-fog</span>                         <span class="green">[c++f]</span>
+        <!-- tracker rows placeholder (filled by JS if needed) -->
+      </div>
+    </div>
+    <div class="window">
+      <div class="title-bar"><span>Gallery</span></div>
+      <div class="content">
+        <button onclick="saveG()" style="width:100%">SAVE TO GALLERY</button>
+        <div id="gal" class="gallery"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
