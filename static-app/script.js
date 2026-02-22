@@ -159,24 +159,24 @@ window.onload = () => {
   }
   // Populate preview monitor with tracker rows (static replica of original Jinja output)
   const TRACKER_ROWS = ["00","01","02","03","04","05","06","07","08","09","0A","0B","0C","0D","0E","0F"];
-  let previewHTML = `<span class="blue">song sad-fog</span>                         <span class="green">[c++f]</span>`;
+  let previewHTML = `<span class="fg">song sad-fog</span>                         <span class="info">[c++f]</span>`;
   TRACKER_ROWS.forEach((row, idx) => {
     if (idx === 0) {
-      previewHTML += `\n<span class="blue">${row}</span>  <span class="cursor blue">00</span>`;
+      previewHTML += `\n<span class="hi1">${row}</span>  <span class="cursor">00</span>`;
     } else {
-      previewHTML += `\n<span class="blue">${row}</span>  <span class="blue">--</span>`;
+      previewHTML += `\n<span class="hi1">${row}</span>  <span class="fg">--</span>`;
     }
     // add six placeholder '--' spans
     for (let i = 0; i < 6; i++) {
-      previewHTML += `  <span class="blue">--</span>`;
+      previewHTML += `  <span class="fg">--</span>`;
     }
   });
-  previewHTML += `\n<span class="blue"></span>`;
+  previewHTML += `\n<span class="fg"></span>`;
   
-  previewHTML += `\n<span class="blue">D</span>`;
-  previewHTML += `\n<span class="blue">P G</span>`;
-  previewHTML += `\n<span class="blue">SCPI</span>`;
-  previewHTML += `\n<span class="blue">  TT</span>`;
+  previewHTML += `\n<span class="fg">D</span>`;
+  previewHTML += `\n<span class="fg">P G</span>`;
+  previewHTML += `\n<span class="hi2">S</span><span class="fg">CPI</span>`;
+  previewHTML += `\n<span class="fg">  TT</span>`;
   document.getElementById('pv').innerHTML = previewHTML;
   buildColorInputs();
   renderG();
